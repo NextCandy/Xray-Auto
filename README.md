@@ -9,6 +9,12 @@
 
 本项目是一个高度模块化的 Shell 脚本，用于在 Linux 服务器上快速部署基于 **Xray** 核心的代理服务。支持最新的 **Vision** 和 **XHTTP** 协议，并集成了由 Reality 驱动的 SNI 伪装技术。
 
+<div align="center">
+
+[**中文**](README.md) | [**English**](README_EN.md)
+
+</div>
+
 ---
 
 ## ✨ 功能特性 (Features)
@@ -68,6 +74,7 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 
 ```
 ---
+
 ## 🎮 使用指南 (Usage)
 
 安装完成后，脚本会将管理工具注册到系统路径。你可以直接在终端输入以下命令：
@@ -88,6 +95,7 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 | `sniff` | **流量嗅探** | 开启/关闭 流量嗅探及其日志。 |
 | `zone` | **时区管理** | 时区与时间设置。 |
 | `remove` | **一键卸载** | 移除Xray及全部安装。 |
+
 ---
 
 ### 📝 客户端配置参考
@@ -127,6 +135,7 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
     ├── net.sh
     ├── ...
 ```
+
 ---
 
 ## ⚠️ 免责声明（Disclaimer）
