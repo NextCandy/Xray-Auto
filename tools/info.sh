@@ -51,21 +51,30 @@ fi
 
 # --- 3. 界面展示 ---
 clear
-echo -e "${BLUE}===================================================================${PLAIN}"
-echo -e "${BLUE}  Xray 配置详情 (Dynamic Info)                                      ${PLAIN}"
-echo -e "${BLUE}===================================================================${PLAIN}"
-echo -e "  SSH 端口    : ${RED}${SSH_PORT}${PLAIN}"
-echo -e "  IPv4 地址   : ${GREEN}${IPV4}${PLAIN}"
-echo -e "  IPv6 地址   : ${GREEN}${IPV6}${PLAIN}"
-echo -e "  SNI 伪装域  : ${YELLOW}${SNI_HOST}${PLAIN}"
-echo -e "  UUID        : ${BLUE}${UUID}${PLAIN}"
-echo -e "  Short ID    : ${BLUE}${SHORT_ID}${PLAIN}"
-echo -e "  Public Key  : ${YELLOW}${PUBLIC_KEY}${PLAIN} (客户端)"
-echo -e "  Private Key : ${RED}${PRIVATE_KEY}${PLAIN} (服务端)"
-echo -e "-------------------------------------------------------------------"
-echo -e "  Vision      : 端口: ${GREEN}${PORT_VISION}${PLAIN}    流控: ${GREEN}xtls-rprx-vision${PLAIN}"
-echo -e "  xhttp       : 端口: ${GREEN}${PORT_XHTTP}${PLAIN}   协议: ${GREEN}xhttp${PLAIN}            路径: ${GREEN}${XHTTP_PATH}${PLAIN}"
-echo -e "${BLUE}===================================================================${PLAIN}"
+SEP="${BLUE}=====================================================================${PLAIN}"
+
+echo -e "${SEP}"
+echo -e "${BLUE} Xray 配置详情 (Dynamic Info) ${PLAIN}"
+echo -e "${SEP}"
+
+printf " %-12s : ${RED}%s${PLAIN}\n"      "SSH"    "${SSH_PORT}"
+printf " %-12s : ${GREEN}%s${PLAIN}\n"    "IPv4"     "${IPV4}"
+printf " %-12s : ${GREEN}%s${PLAIN}\n"    "IPv6"     "${IPV6}"
+printf " %-12s : ${YELLOW}%s${PLAIN}\n"   "SNI"    "${SNI_HOST}"
+printf " %-12s : ${BLUE}%s${PLAIN}\n"     "UUID"        "${UUID}"
+printf " %-12s : ${BLUE}%s${PLAIN}\n"     "Short ID"    "${SHORT_ID}"
+printf " %-12s : ${YELLOW}%s${PLAIN} (客户端)\n" "Public Key"  "${PUBLIC_KEY}"
+printf " %-12s : ${RED}%s${PLAIN} (服务端)\n"    "Private Key" "${PRIVATE_KEY}"
+
+echo -e "${SEP}"
+
+printf " %-12s : 端口: ${GREEN}%-6s${PLAIN} 流控: ${GREEN}%-16s${PLAIN}\n" \
+  "Vision" "${PORT_VISION}" "xtls-rprx-vision"
+
+printf " %-12s : 端口: ${GREEN}%-6s${PLAIN} 协议: ${GREEN}%-16s${PLAIN} Path: ${GREEN}%s${PLAIN}\n" \
+  "xhttp" "${PORT_XHTTP}" "xhttp" "${XHTTP_PATH}"
+
+echo -e "${SEP}"
 
 # 节点
 if [[ -n "$LINK_V4_VIS" ]]; then
