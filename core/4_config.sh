@@ -1,122 +1,145 @@
-# --- SNI 优选 ---
-echo -e "\n${BLUE}--- 5. SNI 伪装域优选 ---${PLAIN}"
-RAW_DOMAINS=("www.icloud.com" "www.apple.com" "itunes.apple.com" "learn.microsoft.com" "www.bing.com" "www.tesla.com")
-TEMP_FILE=$(mktemp)
+#!/bin/bash
+# --- 4. 生成配置 (Config Generation) ---
 
-echo -e "${INFO} 正在检测域名延迟..."
-tput civis
-for domain in "${RAW_DOMAINS[@]}"; do
-    printf "\r   Ping: %-25s" "${domain}..."
-    time_cost=$(LC_NUMERIC=C curl $CURL_OPT -w "%{time_connect}" -o /dev/null -s --connect-timeout 2 "https://$domain")
-    if [ -n "$time_cost" ] && [ "$time_cost" != "0.000" ]; then
-        ms=$(LC_NUMERIC=C awk -v t="$time_cost" 'BEGIN { printf "%.0f", t * 1000 }')
-        echo "$ms $domain" >> "$TEMP_FILE"
-    else
-        echo "999999 $domain" >> "$TEMP_FILE"
+core_config() {
+    echo -e "\n${BLUE}--- 5. 生成 Xray 配置文件 (Config) ---${PLAIN}"
+
+    # 1. 检查必要变量 (从 3_system.sh 继承)
+    if [ -z "$PORT_VISION" ] || [ -z "$PORT_XHTTP" ]; then
+        echo -e "${RED}[FATAL] 端口参数丢失！请检查系统配置步骤。${PLAIN}"
+        exit 1
     fi
-done
-tput cnorm
-echo -ne "\r\033[K"
 
-SORTED_DOMAINS=() 
-index=1
-echo -e "   结果清单:"
+    # 2. 默认伪装域名 (SNI)
+    SNI_HOST="www.icloud.com"
+    echo -e "${OK} 使用伪装域名: ${GREEN}${SNI_HOST}${PLAIN}"
 
-while read ms domain; do
-    SORTED_DOMAINS+=("$domain")
-    if [ "$ms" == "999999" ]; then d_ms="Fail"; else d_ms="${ms}ms"; fi
-    
-    # 绿色推荐标签
-    if [ "$index" -eq 1 ]; then tag="${GREEN}[推荐]${PLAIN}"; else tag=""; fi
-    
-    # 格式化对齐输出
-    printf "   %-2d. %-28s %-8s %b\n" "$index" "$domain" "$d_ms" "$tag"
-    ((index++))
-done < <(sort -n "$TEMP_FILE")
-rm -f "$TEMP_FILE"
+    # 3. 准备目录与核心
+    mkdir -p /usr/local/etc/xray
+    XRAY_BIN="/usr/local/bin/xray"
 
-    echo -e "---------------------------------------------------"
-    echo -e "   0 . 自定义域名 (Custom Input)"
-    echo -e ""
-
-# --- 交互选择 ---
-read_with_timeout "请输入序号选择 (0=自定义)" "1" "$UI_TIMEOUT_LONG"
-sel="$USER_INPUT"
-
-SNI_HOST=${SORTED_DOMAINS[0]} # 初始化默认值
-
-if [ "$sel" == "0" ]; then
-    # 用户选择自定义，需要重新读取完整字符串
-    echo ""
-    read -p "   请输入自定义域名 (如 www.google.com): " custom_domain
-    if [ -n "$custom_domain" ]; then
-        SNI_HOST="$custom_domain"
-    else
-        echo -e "${WARN} 输入为空，已回退到默认推荐域名。"
+    if [ ! -f "$XRAY_BIN" ]; then
+        echo -e "${RED}[FATAL] 找不到 Xray 核心文件，请检查安装步骤！${PLAIN}"
+        exit 1
     fi
-elif [[ "$sel" =~ ^[0-9]+$ ]] && [ "$sel" -le "${#SORTED_DOMAINS[@]}" ] && [ "$sel" -gt 0 ]; then
-    # 用户选择了列表中的序号
-    SNI_HOST=${SORTED_DOMAINS[$((sel-1))]}
-fi
 
-echo -e "${OK}   已选伪装域: ${GREEN}${SNI_HOST}${PLAIN}\n"
+    # 4. 生成身份认证信息
+    echo -e "${INFO} 正在生成密钥对与 UUID..."
+    
+    UUID=$($XRAY_BIN uuid)
+    KEYS=$($XRAY_BIN x25519)
+    # 提取密钥
+    PRIVATE_KEY=$(echo "$KEYS" | grep "Private" | awk -F': ' '{print $2}' | xargs)
+    PUBLIC_KEY=$(echo "$KEYS" | grep -E "Public|Password" | awk -F': ' '{print $2}' | xargs)
+    
+    # ShortId: Reality 的短 ID，推荐 8 位 16 进制 (4字节)
+    SHORT_ID=$(openssl rand -hex 4)
+    # XHTTP Path: 随机路径
+    XHTTP_PATH="/$(openssl rand -hex 4)"
 
-# --- 生成最终配置 ---
-# 1. 强制创建配置目录 (防止目录不存在导致写入失败)
-mkdir -p /usr/local/etc/xray
+    if [ -z "$UUID" ] || [ -z "$PRIVATE_KEY" ]; then
+        echo -e "${ERR} 密钥生成失败，无法继续！"
+        exit 1
+    fi
 
-XRAY_BIN="/usr/local/bin/xray"
-
-# 2. 核心文件熔断检查
-if [ ! -f "$XRAY_BIN" ]; then
-    echo -e "${RED}==========================================================${PLAIN}"
-    echo -e "${RED} [FATAL] 严重错误：Xray 核心文件未安装成功！               ${PLAIN}"
-    echo -e "${RED}==========================================================${PLAIN}"
-    echo -e "原因分析："
-    echo -e "1. GitHub 连接超时，导致安装脚本下载失败。"
-    echo -e "2. 纯 IPv6 机器未正确通过代理连接 GitHub。"
-    echo -e ""
-    echo -e "${YELLOW}建议：请检查服务器网络，或重新运行脚本。${PLAIN}"
-    exit 1
-fi
-
-UUID=$($XRAY_BIN uuid)
-KEYS=$($XRAY_BIN x25519)
-PRIVATE_KEY=$(echo "$KEYS" | grep "Private" | awk '{print $NF}')
-PUBLIC_KEY=$(echo "$KEYS" | grep -E "Public|Password" | awk '{print $NF}')
-SHORT_ID=$(openssl rand -hex 8)
-XHTTP_PATH="/$(openssl rand -hex 4)"
-
-# 3. 密钥生成失败检查
-if [ -z "$UUID" ] || [ -z "$PRIVATE_KEY" ]; then
-    echo -e "${ERR} 密钥生成失败，无法写入配置！"
-    exit 1
-fi
-
-# 写入 Config
-cat > /usr/local/etc/xray/config.json <<EOF
+    # 5. 写入 config.json
+    cat > /usr/local/etc/xray/config.json <<EOF
 {
   "log": { "loglevel": "warning" },
   "dns": { "servers": [ "localhost" ] },
   "inbounds": [
     {
-      "tag": "vision_node", "port": ${PORT_VISION}, "protocol": "vless",
-      "settings": { "clients": [ { "id": "${UUID}", "flow": "xtls-rprx-vision", "email": "admin" } ], "decryption": "none" },
-      "streamSettings": { "network": "tcp", "security": "reality", "realitySettings": { "show": false, "dest": "${SNI_HOST}:443", "serverNames": [ "${SNI_HOST}" ], "privateKey": "${PRIVATE_KEY}", "shortIds": [ "${SHORT_ID}" ], "fingerprint": "chrome" } },
+      "tag": "vision_node",
+      "port": ${PORT_VISION},
+      "protocol": "vless",
+      "settings": {
+        "clients": [ { "id": "${UUID}", "flow": "xtls-rprx-vision", "email": "admin_vision" } ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "${SNI_HOST}:443",
+          "serverNames": [ "${SNI_HOST}" ],
+          "privateKey": "${PRIVATE_KEY}",
+          "shortIds": [ "${SHORT_ID}" ],
+          "fingerprint": "chrome"
+        }
+      },
       "sniffing": { "enabled": true, "destOverride": [ "http", "tls", "quic" ], "routeOnly": true }
     },
     {
-      "tag": "xhttp_node", "port": ${PORT_XHTTP}, "protocol": "vless",
-      "settings": { "clients": [ { "id": "${UUID}", "flow": "", "email": "admin" } ], "decryption": "none" },
-      "streamSettings": { "network": "xhttp", "security": "reality", "xhttpSettings": { "path": "${XHTTP_PATH}" }, "realitySettings": { "show": false, "dest": "${SNI_HOST}:443", "serverNames": [ "${SNI_HOST}" ], "privateKey": "${PRIVATE_KEY}", "shortIds": [ "${SHORT_ID}" ], "fingerprint": "chrome" } },
+      "tag": "xhttp_node",
+      "port": ${PORT_XHTTP},
+      "protocol": "vless",
+      "settings": {
+        "clients": [ { "id": "${UUID}", "email": "admin_xhttp" } ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": { "path": "${XHTTP_PATH}" },
+        "realitySettings": {
+          "show": false,
+          "dest": "${SNI_HOST}:443",
+          "serverNames": [ "${SNI_HOST}" ],
+          "privateKey": "${PRIVATE_KEY}",
+          "shortIds": [ "${SHORT_ID}" ],
+          "fingerprint": "chrome"
+        }
+      },
       "sniffing": { "enabled": true, "destOverride": [ "http", "tls", "quic" ], "routeOnly": true }
     }
   ],
-  "outbounds": [ { "protocol": "freedom", "tag": "direct" }, { "protocol": "blackhole", "tag": "block" } ],
-  "routing": { "domainStrategy": "${DOMAIN_STRATEGY}", "rules": [ { "type": "field", "ip": [ "geoip:private" ], "outboundTag": "block" }, { "type": "field", "protocol": [ "bittorrent" ], "outboundTag": "block" } ] }
+  "outbounds": [
+    { "protocol": "freedom", "tag": "direct" },
+    { "protocol": "blackhole", "tag": "block" }
+  ],
+  "routing": {
+    "domainStrategy": "${DOMAIN_STRATEGY:-IPIfNonMatch}",
+    "rules": [
+      { "type": "field", "ip": [ "geoip:private" ], "outboundTag": "block" },
+      { "type": "field", "protocol": [ "bittorrent" ], "outboundTag": "block" }
+    ]
+  }
 }
 EOF
 
-# Systemd 覆盖
-mkdir -p /etc/systemd/system/xray.service.d
-echo -e "[Service]\nLimitNOFILE=infinity\nLimitNPROC=infinity\nTasksMax=infinity" > /etc/systemd/system/xray.service.d/override.conf
+    # 6. Systemd 资源限制与路径优化 (Systemd Override)
+    # 优化点：
+    # 1. 解除文件描述符限制
+    # 2. 显式指定资源目录 (XRAY_LOCATION_ASSET)，彻底解决路径依赖问题，无需依赖软链接
+    
+    mkdir -p /etc/systemd/system/xray.service.d
+    
+    # 注意：Environment 必须指定到 /usr/local/share/xray/ 目录
+    cat > /etc/systemd/system/xray.service.d/override.conf <<EOF
+[Service]
+LimitNOFILE=infinity
+LimitNPROC=infinity
+TasksMax=infinity
+Environment="XRAY_LOCATION_ASSET=/usr/local/share/xray/"
+EOF
+
+# 7. 最终配置有效性验证 (Config Validation)
+echo -e "${INFO} 正在验证配置文件有效性..."
+if "$XRAY_BIN" run -test -confdir /usr/local/etc/xray >/dev/null 2>&1; then
+    echo -e "${OK} Xray 配置验证通过 (Syntax OK)"
+else
+    echo -e "${RED}[FATAL] 生成的配置文件无效！可能是 Xray 版本过低或配置语法错误。${PLAIN}"
+    # 尝试输出详细错误信息供调试
+    "$XRAY_BIN" run -test -confdir /usr/local/etc/xray
+    exit 1
+fi
+
+# 重载 systemd 配置
+# ...
+
+    # 重载 systemd 配置
+    systemctl daemon-reload >/dev/null 2>&1
+
+    echo -e "${OK} Xray 配置文件生成完毕。"
+}
