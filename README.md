@@ -1,4 +1,10 @@
-# 🚀 Xray Auto Installer
+<div align="center">
+
+[**中文**](README.md) | [**English**](README_EN.md)
+
+</div>
+
+# 🚀 Xray 一键脚本
 
 **全自动、模块化的 Xray 部署脚本**
 
@@ -8,12 +14,6 @@
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Auto?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Auto/releases)
 
 本项目是一个高度模块化的 Shell 脚本，用于在 Linux 服务器上快速部署基于 **Xray** 核心的代理服务。支持最新的 **Vision** 和 **XHTTP** 协议，并集成了由 Reality 驱动的 SNI 伪装技术。
-
-<div align="center">
-
-[**中文**](README.md) | [**English**](README_EN.md)
-
-</div>
 
 ---
 

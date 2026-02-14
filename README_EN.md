@@ -1,3 +1,9 @@
+<div align="center">
+
+[**中文**](README.md) | [**English**](README_EN.md)
+
+</div>
+
 # 🚀 Xray Auto Installer
 
 **Fully Automated, Modular Xray Deployment Script**
