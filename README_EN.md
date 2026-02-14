@@ -30,7 +30,6 @@ This project is a highly modular Shell script designed for the rapid deployment 
 * **🛡️ Security Hardening**: Automatically configures Fail2ban and the Firewall.
 * **🛠️ Rich Toolbox**: Built-in tools for WARP, BBR, port management, SNI optimization, and more.
 
----
 
 ## 📋 Requirements
 
@@ -40,7 +39,6 @@ This project is a highly modular Shell script designed for the rapid deployment 
 * **Ports**: Uses high random ports by default (for Vision and XHTTP).
 * **Client**: Ensure your client supports these protocols (e.g., Shadowrocket, v2rayN, etc.)
 
----
 
 ## 📥 Quick Start
 
@@ -69,7 +67,7 @@ chmod +x install.sh
 ./install.sh
 
 ```
----
+
 
 ## 🗑️ Uninstall
 
@@ -80,7 +78,6 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 
 ```
 
----
 
 ## 🎮 Usage Guide
 
@@ -103,7 +100,6 @@ After installation, the management tools are registered to the system path. You 
 | `zone` | **Timezone Manager** | Configure timezone and system time. |
 | `remove` | **Uninstall** | Remove Xray and all installed components. |
 
----
 
 ### 📝 Client Configuration Reference
 
@@ -120,7 +116,6 @@ After installation, the management tools are registered to the system path. You 
 | **ShortId** | `a1b2...` | Type `info` to retrieve |
 | **Path** | `/8d39f310` | **Required for XHTTP nodes only** |
 
----
 
 ## 📂 Project Structure
 
@@ -144,7 +139,6 @@ This project uses a modular architecture with the following directory structure:
     ├── ...
 ```
 
----
 
 ## ⚠️ Disclaimer
 1. **Research & Learning Only**: This project is intended solely for **network technology research, learning, and system testing**. Do not use this script for any purpose that violates national laws or regulations.

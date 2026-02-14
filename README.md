@@ -24,7 +24,6 @@
 * **🛡️ 安全加固**: 自动配置 Fail2ban 和防火墙。
 * **🛠️ 丰富工具箱**: 内置 WARP、BBR、端口管理、SNI 优选等工具。
 
----
 
 ## 📋 环境要求 (Requirements)
 
@@ -34,7 +33,6 @@
 * **端口**: 默认使用高位随机端口 (Vision) 和 (XHTTP)，。
 * **客户端**: 请确保你的代理端支持该种协议（如 Shadowrocket, V2rayN...)
 
----
 
 ## 📥 快速安装 (Quick Start)
 
@@ -46,6 +44,7 @@
 bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/bootstrap.sh)
 
 ```
+
 
 ### 🛠️ 备用：手动安装 (Manual)
 
@@ -64,7 +63,8 @@ chmod +x install.sh
 ./install.sh
 
 ```
----
+
+
 ## 🗑️ 卸载 (Uninstall)
 
 如果你想彻底移除 Xray 及相关配置，请运行（或服务端输入`remove`）：
@@ -73,7 +73,7 @@ chmod +x install.sh
 bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/remove.sh)
 
 ```
----
+
 
 ## 🎮 使用指南 (Usage)
 
@@ -96,7 +96,6 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 | `zone` | **时区管理** | 时区与时间设置。 |
 | `remove` | **一键卸载** | 移除Xray及全部安装。 |
 
----
 
 ### 📝 客户端配置参考
 | 参数 | 值 (示例) | 说明 |
@@ -112,7 +111,6 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 | **ShortId** | `a1b2...` | 输入 `info` 获取 |
 | **路径 (Path)** | `/8d39f310` | **仅 xhttp 节点填写** |
 
----
 
 ## 📂 项目结构 (Structure)
 
@@ -136,7 +134,6 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
     ├── ...
 ```
 
----
 
 ## ⚠️ 免责声明（Disclaimer）
 
@@ -145,6 +142,5 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 3.  **无担保条款**: 本软件按“原样”提供，不提供任何形式的明示或暗示担保。作者不对因使用本脚本而导致的任何直接或间接损失（包括但不限于数据丢失、系统崩溃、IP 被封锁、服务器被服务商暂停等）负责。
 4.  **第三方组件**: 本脚本集成了第三方开源程序（如 Xray-core），其版权和责任归原作者所有。本脚本作者不对第三方程序的安全性或稳定性做出保证。
 5.  **许可证**: 本项目遵循 **GNU General Public License v3.0** 开源协议，详细条款请参阅仓库内的 `LICENSE` 文件。
----
 
 **Made with ❤️ by ISFZY**
