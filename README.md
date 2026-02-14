@@ -13,7 +13,7 @@
 
 ## ✨ 功能特性 (Features)
 
-* **📦 模块化设计**: 代码拆分为 Core、Lib、Tools 三大模块，逻辑清晰。
+* **📦 模块化设计**: 代码分为 Core、Lib、Tools 三大模块，逻辑清晰。
 * **🔒 最新协议**: 支持 Vision 和 XHTTP 协议，集成 Reality 伪装。
 * **🛡️ 安全加固**: 自动配置 Fail2ban 和防火墙。
 * **🛠️ 丰富工具箱**: 内置 WARP、BBR、端口管理、SNI 优选等工具。
@@ -22,10 +22,10 @@
 
 ## 📋 环境要求 (Requirements)
 
-* **操作系统**: Debian 10+, Ubuntu 20.04+, CentOS 7+ (推荐 Debian 11/12)
+* **操作系统**: Debian 10+, Ubuntu 20.04+ (推荐 Debian 11/12)
 * **架构**: amd64, arm64
 * **权限**: 需要 `root` 权限
-* **端口**: 默认占用 `443` (Vision) 和 `8443` (XHTTP)，安装过程中可自定义。
+* **端口**: 默认使用高位随机端口 (Vision) 和 (XHTTP)，。
 * **客户端**: 请确保你的代理端支持该种协议（如 Shadowrocket, V2rayN...)
 
 ---
