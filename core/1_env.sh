@@ -49,22 +49,22 @@ pre_flight_check() {
                 # --- 交互输入 ---
                 local kill_choice=""
                 while true; do
-                    # -n 1: 读1个字符; -s: 静默
-                    echo -ne "是否强制终止占用进程? (y/n) [n]: "
-                    read -n 1 -s raw_input
+                    # 移除 echo -ne 和 -n 1，改为标准 read -p
+                    read -p "是否强制终止占用进程? (y/n) [n]: " raw_input
                     
                     # 1. 处理直接回车 (默认为 n)
                     if [ -z "$raw_input" ]; then
-                        echo "n" # 回显默认值
+                        # 删掉手动 echo "n"
                         kill_choice="n"
                         break
                     fi
 
                     # 2. 校验输入 (不区分大小写)
                     if [[ "$raw_input" =~ ^[yYnN]$ ]]; then
-                        echo "$raw_input" # 回显用户按键
+                        # 删掉手动 echo "$raw_input"
                         kill_choice="$raw_input"
                         break
+
                     else
                         # 3. 错误处理
                         # A. 打印出错误的字符(让用户知道按了啥)并换行
@@ -119,9 +119,9 @@ pre_flight_check() {
 check_net_stack() {
     HAS_V4=false; HAS_V6=false; CURL_OPT=""
     
-    # 使用 curl 探测网络 (超时时间 3秒)
-    if curl -s4m 3 https://1.1.1.1 >/dev/null 2>&1; then HAS_V4=true; fi
-    if curl -s6m 3 https://2606:4700:4700::1111 >/dev/null 2>&1; then HAS_V6=true; fi
+    # 修正了 curl 参数语法：将 -k 安全地加入，并分离了 -m 3
+    if curl -s4k -m 3 https://1.1.1.1 >/dev/null 2>&1; then HAS_V4=true; fi
+    if curl -s6k -m 3 https://2606:4700:4700::1111 >/dev/null 2>&1; then HAS_V6=true; fi
 
     if [ "$HAS_V4" = true ] && [ "$HAS_V6" = true ]; then
         NET_TYPE="Dual-Stack (双栈)"
@@ -135,6 +135,11 @@ check_net_stack() {
         NET_TYPE="IPv6 Only"
         CURL_OPT="-6"
         DOMAIN_STRATEGY="UseIPv6"
+        
+        # 为纯 IPv6 环境配置 NAT64/DNS64 网关
+        echo -e "${INFO} 为纯 IPv6 环境配置 NAT64/DNS64 网关..."
+        cp /etc/resolv.conf /etc/resolv.conf.bak 2>/dev/null
+        echo -e "nameserver 2a00:1098:2b::1\nnameserver 2a00:1098:2fac::1" > /etc/resolv.conf
     else
         echo -e "${ERR} 无法连接互联网，请检查网络配置！"
         exit 1
