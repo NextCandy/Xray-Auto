@@ -94,6 +94,7 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 | `backup` | **备份与恢复** | 查询、备份，恢复配置。 |
 | `sniff` | **流量嗅探** | 开启/关闭 流量嗅探及其日志。 |
 | `zone` | **时区管理** | 时区与时间设置。 |
+| `update` | **更新** | 更新 Xray core 和 Geodata 数据库。 |
 | `remove` | **一键卸载** | 移除Xray及全部安装。 |
 
 

@@ -98,6 +98,7 @@ After installation, the management tools are registered to the system path. You 
 | `backup` | **Backup & Restore** | Query, backup, and restore configurations. |
 | `sniff` | **Traffic Sniffing** | Enable/Disable traffic sniffing and logging. |
 | `zone` | **Timezone Manager** | Configure timezone and system time. |
+| `update` | **Updata** | Updata Xray core and Geodata。 |
 | `remove` | **Uninstall** | Remove Xray and all installed components. |
 
 
