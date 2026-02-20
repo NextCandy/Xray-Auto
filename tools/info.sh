@@ -92,8 +92,7 @@ if [[ -n "$LINK_V6_VIS" ]]; then
 fi
 
 # 二维码
-read -n 1 -p "是否生成二维码? (y/n): " CHOICE
-echo ""
+read -p "是否生成二维码? (y/n): " CHOICE
 if [[ "$CHOICE" =~ ^[yY]$ ]]; then
     if [[ -n "$LINK_V4_VIS" ]]; then
         echo -e "\n${BLUE}--- IPv4 Vision ---${PLAIN}"
@@ -105,8 +104,7 @@ if [[ "$CHOICE" =~ ^[yY]$ ]]; then
     # 防止刷屏，IPv6 二维码依然需要二次确认
     if [[ -n "$LINK_V6_VIS" ]]; then
         echo ""
-        read -n 1 -p "是否继续生成 IPv6 二维码? (y/n): " CHOICE_V6
-        echo ""
+        read -p "是否继续生成 IPv6 二维码? (y/n): " CHOICE_V6
         if [[ "$CHOICE_V6" =~ ^[yY]$ ]]; then
             echo -e "\n${BLUE}--- IPv6 Vision ---${PLAIN}"
             qrencode -t ANSIUTF8 "${LINK_V6_VIS}"
@@ -119,6 +117,6 @@ fi
 echo -e "\n-----------------------------------------------------------------------------------------------------------------"
 echo -e " ${BLUE}管理命令:${PLAIN}"
 echo -e " ${YELLOW}info${PLAIN} (管理员信息) | ${YELLOW}net${PLAIN} (网络) | ${YELLOW}xw${PLAIN} (WARP分流) | ${YELLOW}swap${PLAIN}  (内存) | ${YELLOW}backup${PLAIN} (备份) | ${YELLOW}f2b${PLAIN} (防火墙) | ${YELLOW}sniff${PLAIN}  (流量嗅探)"
-echo -e " ${YELLOW}user${PLAIN} (多用户管理) | ${YELLOW}sni${PLAIN} (域名) | ${YELLOW}bt${PLAIN} (BT封禁)   | ${YELLOW}ports${PLAIN} (端口) | ${YELLOW}zone${PLAIN}   (时区) | ${YELLOW}bbr${PLAIN} (内核)   | ${YELLOW}remove${PLAIN} (卸载)"
+echo -e " ${YELLOW}user${PLAIN} (多用户管理) | ${YELLOW}sni${PLAIN} (域名) | ${YELLOW}bt${PLAIN} (BT封禁)   | ${YELLOW}ports${PLAIN} (端口) | ${YELLOW}zone${PLAIN}   (时区) | ${YELLOW}bbr${PLAIN} (内核)   | ${YELLOW}updata${PLAIN} (内核更新) | ${YELLOW}remove${PLAIN} (卸载)"
 echo -e "-----------------------------------------------------------------------------------------------------------------"
 echo ""

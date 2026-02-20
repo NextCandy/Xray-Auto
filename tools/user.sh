@@ -300,9 +300,11 @@ del_user() {
         local email=$(jq -r ".inbounds[0].settings.clients[$array_idx].email // \"无备注\"" "$CONFIG_FILE")
 
         # --- 确认删除 ---
-        echo -e "\033[1A\033[K确认删除用户: ${RED}$email${PLAIN} ? [y/n]: "
-        read -n 1 -r key
-        echo ""
+        read -p $'\033[1A\033[K确认删除用户: \033[31m'"$email"$'\033[0m ? [y/n]: ' key
+        # 或者保留 echo，仅修改 read：
+        # echo -ne "\033[1A\033[K确认删除用户: ${RED}$email${PLAIN} ? [y/n]: "
+        # read -r key
+        # (删掉 echo "")
 
         case "$key" in
             [yY])
@@ -351,18 +353,15 @@ while true; do
 
     # --- 验证循环 ---
     while true; do
-        # -n 1 只读取 1 个字符，输入后立即生效
-        read -n 1 -p "请输入选项 [0-3]: " choice
-        
-        # 必须手动输出一个换行
-        echo "" 
+        # 移除 -n 1 和 echo ""，要求用户必须按回车确认，解决缓冲区残留问题
+        read -p "请输入选项 [0-3]: " choice
 
         # 验证输入
         if [[ "$choice" =~ ^[0-3]$ ]]; then
             break # 输入正确，跳出循环
         else
-            # 输入错误处理：
-            echo -e "\033[1A\033[K${RED}输入无效: \"$choice\" 不是有效选项${PLAIN}"
+            # 输入错误处理：光标上移一行并清除，不留残影
+            echo -e "\033[1A\033[K${RED}输入无效: \"$choice\" 不是有效选项，请重新输入${PLAIN}"
         fi
     done
 
