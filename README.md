@@ -63,7 +63,7 @@ chmod +x install.sh
 ./install.sh
 
 ```
-**📥 安装 精简版(lite.sh)**
+**📥 安装 精简版 (lite.sh)**
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/lite.sh)
 
