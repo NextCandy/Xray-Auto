@@ -77,11 +77,6 @@ If you want to completely remove Xray and its related configurations, run the fo
 bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/remove.sh)
 
 ```
-**📥 Lite Installation (lite.sh)**
-```bash
-bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/lite.sh)
-
-```
 
 ## 🎮 Usage Guide
 
