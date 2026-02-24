@@ -3,7 +3,7 @@
 
 # eg: 调优 1
 # 单用户
-cat << EOF > /etc/sysctl.d/99-performance.conf
+cat > /etc/sysctl.d/99-custom-network.conf <<EOF
 # 启用 BBR 拥塞控制算法
 net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr
