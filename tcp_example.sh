@@ -1,33 +1,7 @@
 # 示例仅供参考，安装脚本并未加载如下调优。请根据你的服务器进行更改调整，切勿盲目追求单线程极限调整，后果自负。
 # 使用方法：直接选择任意一段复制后在服务器运行即可。
 
-# 调优1
-cat > /etc/sysctl.d/99-custom-network.conf <<EOF
-# 启用 BBR 拥塞控制算法
-net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr
-
-# 优化内存限制
-net.core.rmem_max = 33554432
-net.core.wmem_max = 33554432
-net.ipv4.tcp_rmem = 4096 131072 33554432
-net.ipv4.tcp_wmem = 4096 131072 33554432
-
-# 全局 TCP 内存限制
-net.ipv4.tcp_mem = 32768 49152 65536
-
-# 规模队列
-net.core.somaxconn = 4096
-net.ipv4.tcp_max_syn_backlog = 4096
-net.core.netdev_max_backlog = 4096
-EOF
-
-# 立即应用配置
-sysctl -p /etc/sysctl.d/99-performance.conf
-
-# ------------------------------------------
-
-# 调优2
+# eg: 调优 1
 # 单用户
 cat << EOF > /etc/sysctl.d/99-performance.conf
 # 启用 BBR 拥塞控制算法
@@ -54,7 +28,7 @@ sysctl -p /etc/sysctl.d/99-performance.conf
 
 # ------------------------------------------
 
-# 调优3
+# eg: 调优 2
 # 多用户
 cat > /etc/sysctl.d/99-custom-network.conf <<EOF
 net.core.default_qdisc = fq
