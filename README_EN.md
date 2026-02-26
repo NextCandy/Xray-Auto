@@ -200,7 +200,7 @@ Founded in 2017, DMIT is known for high-stability, high-bandwidth VPS solutions 
 * **IP Replacement**: If your IP is blocked, you can replace it for free once every 15 days (applies to Eyeball and Premium tiers).
 * **Refunds**: Full refund within 3 days (if <30GB traffic used). Pro-rated refunds available within 1 month (minus gateway fees).
 
-## How to Keep Your Fork Updated
+## 🔄 How to Keep Your Fork Updated
 
 If you have forked this repository, you can keep it synced with the upstream repository using one of the following two methods:
 
