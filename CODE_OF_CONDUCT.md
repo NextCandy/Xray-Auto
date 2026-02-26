@@ -1,5 +1,8 @@
+<div align="center">
+
 [🇨🇳 中文](#zh-version) | [🇺🇸 English](#en-version)
 
+</div>
 ---
 
 <a id="zh-version"></a>
