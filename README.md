@@ -160,8 +160,9 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Reality/main/tools/
 
 ## 💖 赞助与支持 (Sponsor)
 
-本项目完全免费开源。如果这个脚本为您节省了配置时间，并且您愿意支持后续的开发与测试服务器维护，欢迎打赏一杯咖啡！您的支持是我持续更新的最大动力。
-### 🌐 服务器 (VPS) 选购
+本项目完全免费开源。如果这个脚本为您节省了配置时间，并且您愿意支持后续的开发与测试服务器维护，欢迎使用我的aff购买链接！您的支持是我持续更新的最大动力。
+
+### 🌐 服务器 (VPS) 选购建议
 
 为了获得最佳的科学上网体验，建议您在选购 VPS 时注意以下几点：
 
@@ -402,7 +403,7 @@ This repository includes a built-in GitHub Actions workflow that automatically f
 
 ## 💖 Sponsor & Support
 
-This project is completely free and open-source. If you find this script helpful, if it saves you time, and you'd like to support ongoing development and server maintenance, consider buying me a coffee! Your support is my greatest motivation.
+This project is completely free and open-source. If you find this script helpful, if it saves you time, and you'd like to support ongoing development and server maintenance, consider use my aff! Your support is my greatest motivation.
 
 ### 🌐 VPS Purchasing Recommendations
 
