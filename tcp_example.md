@@ -39,6 +39,7 @@ sysctl -p /etc/sysctl.d/99-custom-network.conf
 ### eg2: 多用户
 ```bash
 cat > /etc/sysctl.d/99-custom-network.conf <<EOF
+# 启用 BBR 拥塞控制算法
 net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr
 
