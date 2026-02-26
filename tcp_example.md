@@ -1,8 +1,7 @@
 ### 示例仅供参考，安装脚本并未加载如下调优。请根据你的服务器进行更改调整，切勿盲目追求单线程极限调整，后果自负。
 #### 使用方法：直接选择任意一段复制后在服务器运行即可。
 
-### eg: 调优 1
-#### 单用户
+### 调优1: 单用户
 ```bash
 cat > /etc/sysctl.d/99-custom-network.conf <<EOF
 # 启用 BBR 拥塞控制算法
@@ -29,8 +28,7 @@ sysctl -p /etc/sysctl.d/99-performance.conf
 
 ```
 
-### eg: 调优 2
-##### 多用户
+### 调优2: 多用户
 ```bash
 cat > /etc/sysctl.d/99-custom-network.conf <<EOF
 net.core.default_qdisc = fq
