@@ -147,7 +147,9 @@ bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/rem
 ### 📝 DMIT 介绍
 
 DMIT 成立于 2017 年，总部位于美国纽约，但在香港和日本等地也设有分支或紧密的业务合作点。
+
 • 成立初衷： 早期由一群对网络连接质量有极高要求的技术爱好者（主要为华人背景）创立。他们发现市面上缺乏能提供高稳定、高带宽、且针对亚洲方向深度优化的廉价 VPS，因此决定自行采购硬件并租用顶级数据中心。
+
 • 成长历程： 真正让 DMIT 在圈内名声大噪的是它在 2018 年前后 推出的香港 CN2 GIA 服务。当时香港的 GIA 线路极其稀缺且价格昂贵，DMIT 以相对亲民的价格和极高的带宽冗余迅速占领了高端用户市场。
 
 DMIT分为三个网络类型，Premium (Pro)、Eyeball (Eb)、Tier1 (T1)，现在还提供免费更换IP的服务，服务详情查看 [TOS](https://www.dmit.io/pages/tos)【IP Replacement Policy】。
