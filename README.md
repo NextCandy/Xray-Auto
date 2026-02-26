@@ -253,7 +253,8 @@ This project is a highly modular Shell script designed for the rapid deployment 
 
 <div align="center">
 
-[**中文**](README.md) | [**English**](README_EN.md)
+[🇨🇳 中文](#zh-version) | [🇺🇸 English](#en-version)
+
 
 </div>
 
