@@ -139,6 +139,7 @@ This project uses a modular architecture with the following directory structure:
     ├── ...
 ```
 
+
 ## 🌐 VPS Purchasing Recommendations
 
 To ensure the best proxy experience, please consider the following points when selecting a VPS:
@@ -198,6 +199,21 @@ Founded in 2017, DMIT is known for high-stability, high-bandwidth VPS solutions 
 **Policies & FAQ:**
 * **IP Replacement**: If your IP is blocked, you can replace it for free once every 15 days (applies to Eyeball and Premium tiers).
 * **Refunds**: Full refund within 3 days (if <30GB traffic used). Pro-rated refunds available within 1 month (minus gateway fees).
+
+## How to Keep Your Fork Updated
+
+If you have forked this repository, you can keep it synced with the upstream repository using one of the following two methods:
+
+### Method 1: Manual Sync (Recommended to preserve your own changes)
+1. Go to your forked repository's homepage on GitHub.
+2. Find and click the **"Sync fork"** button located under the green "Code" button.
+3. Click **"Update branch"** to pull the latest changes from the upstream repository.
+
+### Method 2: Auto Sync (Via GitHub Actions - WARNING: Overwrites local changes)
+This repository includes a built-in GitHub Actions workflow that automatically forces synchronization every day. **⚠️ PLEASE NOTE: Enabling this feature will force-overwrite any independent modifications you have made on the default branch with upstream updates. If you plan to do your own development, please create a new branch.**
+1. Go to the **"Actions"** tab of your forked repository.
+2. Click **"I understand my workflows, go ahead and enable them"** to activate GitHub Actions.
+3. Once enabled, the `Auto Sync Upstream` workflow will run automatically on schedule (you can also find it in the left sidebar to trigger it manually).
 
 
 ## ⚠️ Disclaimer
