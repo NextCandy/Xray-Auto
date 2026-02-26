@@ -4,7 +4,7 @@
 
 </div>
 
-# 🚀 Xray 一键脚本
+# 🚀 Xray-Reality 一键脚本
 
 **全自动、模块化的 Xray 部署脚本**
 
