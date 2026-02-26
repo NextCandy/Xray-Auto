@@ -8,10 +8,10 @@
 
 **Fully Automated, Modular Xray Deployment Script**
 
-[![Top Language](https://img.shields.io/github/languages/top/ISFZY/Xray-Auto?style=flat-square&color=5D6D7E)](https://github.com/ISFZY/Xray-Auto/search?l=Shell)
+[![Top Language](https://img.shields.io/github/languages/top/ISFZY/Xray-Auto?style=flat-square&color=5D6D7E)](https://github.com/ISFZY/Xray-Reality/search?l=Shell)
 [![Xray Core](https://img.shields.io/badge/Core-Xray-blue?style=flat-square)](https://github.com/XTLS/Xray-core)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Auto?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Auto/releases)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Reality/releases)
 
 This project is a highly modular Shell script designed for the rapid deployment of proxy services based on the **Xray** core on Linux servers. It supports the latest **Vision** and **XHTTP** protocols and integrates SNI masking technology powered by Reality.
 
@@ -47,7 +47,7 @@ This project is a highly modular Shell script designed for the rapid deployment 
 Run the following command as the `root` user. The bootstrap script will automatically install Git, clone the repository, and start the installer.
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/bootstrap.sh)
+bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Reality/main/bootstrap.sh)
 
 ```
 
@@ -59,7 +59,7 @@ If you cannot connect to GitHub Raw, you can try cloning manually:
 apt update && apt install -y git
 
 # 2. Clone the repository
-git clone https://github.com/ISFZY/Xray-Auto.git xray-install
+git clone https://github.com/ISFZY/Xray-Reality.git xray-install
 
 # 3. Run the script
 cd xray-install
@@ -74,7 +74,7 @@ chmod +x install.sh
 If you want to completely remove Xray and its related configurations, run the following (or type remove in the server terminal):
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Auto/main/tools/remove.sh)
+bash <(curl -sL https://raw.githubusercontent.com/ISFZY/Xray-Reality/main/tools/remove.sh)
 
 ```
 
@@ -208,4 +208,5 @@ Founded in 2017, DMIT is known for high-stability, high-bandwidth VPS solutions 
 5. **License**: This project follows the **GNU General Public License v3.0**. Please refer to the `LICENSE` file in the repository for detailed terms.
 
 **Made with ❤️ by ISFZY**
-*Copyright © Xray-Auto Developers. Dedicated to the purest network routing experience.*
+
+*Copyright © Xray-Reality Developers. Dedicated to the purest network routing experience.*
