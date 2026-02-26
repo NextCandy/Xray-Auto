@@ -4,7 +4,7 @@
 
 </div>
 
-# 🚀 Xray Auto Installer
+# 🚀 Xray-Reality Installer
 
 **Fully Automated, Modular Xray Deployment Script**
 
