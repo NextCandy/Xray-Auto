@@ -3,6 +3,7 @@
 
 # eg: 调优 1
 # 单用户
+```bash
 cat > /etc/sysctl.d/99-custom-network.conf <<EOF
 # 启用 BBR 拥塞控制算法
 net.core.default_qdisc = fq
@@ -14,7 +15,7 @@ net.core.wmem_max = 25000000
 net.ipv4.tcp_rmem = 4096 131072 25000000
 net.ipv4.tcp_wmem = 4096 131072 25000000
 
-# 全局 TCP 内存限制 (针对 1GB 内存系统安全线)
+# 全局 TCP 内存限制 (针对 1GB 内存系统安全线) (最高约 256MB)
 net.ipv4.tcp_mem = 32768 49152 65536
 
 # 保持中等规模队列，适合单用户环境
@@ -26,10 +27,13 @@ EOF
 # 立即应用配置
 sysctl -p /etc/sysctl.d/99-performance.conf
 
+```
+
 # ------------------------------------------
 
 # eg: 调优 2
 # 多用户
+```bash
 cat > /etc/sysctl.d/99-custom-network.conf <<EOF
 net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr
@@ -52,4 +56,5 @@ EOF
 # 立即应用配置
 sysctl -p /etc/sysctl.d/99-performance.conf
 
+```
 # ------------------------------------------
