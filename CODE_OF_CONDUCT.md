@@ -1,4 +1,4 @@
-[🇨🇳 阅读中文版本](#zh-version) | [🇺🇸 Read English Version](#en-version)
+[🇨🇳 中文](#zh-version) | [🇺🇸 English](#en-version)
 
 ---
 
