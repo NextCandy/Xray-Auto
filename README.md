@@ -13,7 +13,7 @@
 
 **全自动、模块化的 Xray 部署脚本**
 
-[![Top Language](https://img.shields.io/github/languages/top/ISFZY/Xray-Reality?style=flat-square&color=5D6D7E)](https://github.com/ISFZY/Xray-Reality/search?l=Shell)
+[![Internet Freedom](https://img.shields.io/badge/Internet-Freedom-0099ff.svg?style=flat-square)](https://github.com/ISFZY/Xray-Reality)
 [![Xray Core](https://img.shields.io/badge/Core-Xray-blue?style=flat-square)](https://github.com/XTLS/Xray-core)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Reality/releases)
@@ -244,7 +244,7 @@ DMIT分为三个网络类型，Premium (Pro)、Eyeball (Eb)、Tier1 (T1)，现�
 
 **Fully Automated, Modular Xray Deployment Script**
 
-[![Top Language](https://img.shields.io/github/languages/top/ISFZY/Xray-Reality?style=flat-square&color=5D6D7E)](https://github.com/ISFZY/Xray-Reality/search?l=Shell)
+[![Internet Freedom](https://img.shields.io/badge/Internet-Freedom-0099ff.svg?style=flat-square)](https://github.com/ISFZY/Xray-Reality)
 [![Xray Core](https://img.shields.io/badge/Core-Xray-blue?style=flat-square)](https://github.com/XTLS/Xray-core)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Reality/releases)
