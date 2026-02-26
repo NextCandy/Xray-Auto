@@ -17,8 +17,6 @@
 
 [![Shell](https://img.shields.io/badge/Language-Shell-89E051?style=flat-square&logo=gnu-bash&logoColor=white)](https://github.com/ISFZY/Xray-Reality/search?l=Shell)
 [![GitHub stars](https://img.shields.io/github/stars/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/stargazers)
-
-
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Reality/releases)
 
@@ -252,7 +250,6 @@ DMIT分为三个网络类型，Premium (Pro)、Eyeball (Eb)、Tier1 (T1)，现�
 
 [![Shell](https://img.shields.io/badge/Language-Shell-89E051?style=flat-square&logo=gnu-bash&logoColor=white)](https://github.com/ISFZY/Xray-Reality/search?l=Shell)
 [![GitHub stars](https://img.shields.io/github/stars/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/stargazers)
-
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?include_prereleases&style=flat-square&color=blue&refresh=1)](https://github.com/ISFZY/Xray-Reality/releases)
 
