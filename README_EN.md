@@ -139,6 +139,66 @@ This project uses a modular architecture with the following directory structure:
     ├── ...
 ```
 
+## 🌐 VPS Purchasing Recommendations
+
+To ensure the best proxy experience, please consider the following points when selecting a VPS:
+
+* **Routing Quality**:
+    * **China Telecom Users**: Priority should be given to **CN2 GIA** lines.
+    * **China Unicom Users**: Priority should be given to **AS9929** or **AS4837** lines.
+    * **China Mobile Users**: Priority should be given to **CMIN2** lines.
+* **IP Purity**: Choose **Native IPs** or data centers with low abuse rates. While Reality protocols mask traffic, blacklisted IPs will still fail to unlock streaming services like Netflix or Disney+.
+* **Virtualization Architecture**: **KVM** is strongly recommended. OpenVZ (OVZ) does not support BBR acceleration, which severely limits speeds during peak hours.
+
+### 📝 DMIT Purchasing Guide
+
+Founded in 2017, DMIT is known for high-stability, high-bandwidth VPS solutions with deep optimization for Asian routing.
+
+| Network Type | Routing | Best Use Case |
+| :--- | :--- | :--- |
+| **Premium (Pro)** | IPv4: CN2 GIA (3-ISP) / IPv6: 9929 + CMIN2 | All scenarios (Best for Proxy) |
+| **Eyeball (Eb)** | AS9929 + CMIN2 | All scenarios (Best for Proxy) |
+| **Tier1 (T1)** | International Routing (No China Optimization) | International access / Web hosting|
+
+#### I. DMIT EyeBall (Eb) Packages
+
+| Name | CPU | RAM | Disk | Traffic | Speed | Price | Buy | Remark |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| LAX.AN4.EB.Intro | 1vCPU | 1GB | 10GB SSD | 500GB/mo | 1Gbps | 29.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=231) | US West |
+| LAX.AN4.EB.WEE | 1vCPU | 1GB | 20GB SSD | 1000GB/mo | 1Gbps | 39.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=188) | US West |
+| LAX.AN4.EB.CORONA | 1vCPU | 1GB | 20GB SSD | 2000GB/mo | 2Gbps | 49.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=218) | US West |
+| LAX.AN4.EB.FONTANA | 2vCPU | 2GB | 40GB SSD | 4000GB/mo | 4Gbps | 100$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=219) | US West |
+| HKG.AN4.EB.WEEv2 | 1vCPU | 1GB | 20GB SSD | 450GB/mo | 500Mbps | 179.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=209) | Hong Kong |
+| TYO.AN4.EB.WEE | 1vCPU | 1GB | 20GB SSD | 450GB/mo | 500Mbps | 154.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=220) | Tokyo |
+| LAX.AN5.EB.TINY | 1vCPU | 2GB | 20GB SSD | 1500GB/mo | 2Gbps | 88.88$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=189) | US West |
+
+
+#### II. DMIT Premium (Pro) Packages
+
+| Name | CPU | RAM | Disk | Traffic | Speed | Price | Buy | Remark |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| LAX.AN4.Pro.Wee | 1vCPU | 1GB | 10GB SSD | 500GB/mo | 500Mbps | 39.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=183) | US West |
+| LAX.AN4.Pro.MALIBU | 1vCPU | 1GB | 20GB SSD | 1000GB/mo | 1Gbps | 49.9$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=186) | US West |
+| LAX.AN4.PRO.PalmSpring  | 2vCPU | 2GB | 40GB SSD | 2000GB/mo | 2Gbps | 100$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=182) | US West |
+| HKG.AN4.PRO.Victoria | 1vCPU | 2GB | 60GB SSD | 500GB/mo | 500Mbps | 298.88$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=178) | Hong Kong |
+| TYO.AN4.PRO.Shinagawa | 1vCPU | 2GB | 60GB SSD | 500GB/mo | 500Mbps | 199$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&pid=179) | Tokyo |
+| LAX.AN5.Pro.TINY | 1vCPU | 2GB | 20GB SSD | 1500GB/mo | 2Gbps | 88.88$/yr | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=100) | US West |
+| LAX.AN5.Pro.Pocket | 2vCPU | 2GB | 40GB SSD | 1500GB/mo | 4Gbps | 14.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=137) | US West |
+| LAX.AN5.Pro.STARTER | 2vCPU | 2GB | 80GB SSD | 3000GB/mo | 10Gbps | 29.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=56) | US West |
+| LAX.AN5.Pro.MINI | 4vCPU | 4GB | 80GB SSD | 5000GB/mo | 10Gbps | 58.88$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=58) | US West |
+| HKG.AS3.Pro.TINY | 1vCPU | 1GB | 20GB SSD | 500GB/mo | 1Gbps | 39.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=123) | Hong Kong |
+| HKG.AS3.Pro.STARTER | 1vCPU | 2GB | 40GB SSD | 1000GB/mo | 1Gbps | 79.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=124) | Hong Kong |
+| HKG.AS3.Pro.MINI | 2vCPU | 2GB | 60GB SSD | 1500GB/mo | 1Gbps | 119.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=125) | Hong Kong |
+| HKG.AS3.Pro.MICRO | 4vCPU | 4GB | 80GB SSD | 2000GB/mo | 1Gbps | 159.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=126) | Hong Kong |
+| TYO.AS3.Pro.TINY | 1vCPU | 1GB | 20GB SSD | 500GB/mo | 1Gbps | 21.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=138) | Tokyo |
+| TYO.AS3.Pro.STARTER | 1vCPU | 2GB | 40GB SSD | 1000GB/mo | 1Gbps | 39.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=139) | Tokyo |
+| TYO.AS3.Pro.MINI | 2vCPU | 2GB | 60GB SSD | 2000GB/mo | 1Gbps | 79.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=140) | Tokyo |
+| TYO.AS3.Pro.MINI | 4vCPU | 4GB | 80GB SSD | 4000GB/mo | 1Gbps | 159.90$/mo | [Buy](https://www.dmit.io/aff.php?aff=13908&a=add&pid=141) | Tokyo |
+
+**Policies & FAQ:**
+* **IP Replacement**: If your IP is blocked, you can replace it for free once every 15 days (applies to Eyeball and Premium tiers).
+* **Refunds**: Full refund within 3 days (if <30GB traffic used). Pro-rated refunds available within 1 month (minus gateway fees).
+
 
 ## ⚠️ Disclaimer
 1. **Research & Learning Only**: This project is intended solely for **network technology research, learning, and system testing**. Do not use this script for any purpose that violates national laws or regulations.
@@ -148,3 +208,4 @@ This project uses a modular architecture with the following directory structure:
 5. **License**: This project follows the **GNU General Public License v3.0**. Please refer to the `LICENSE` file in the repository for detailed terms.
 
 **Made with ❤️ by ISFZY**
+*Copyright © Xray-Auto Developers. Dedicated to the purest network routing experience.*
