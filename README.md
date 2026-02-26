@@ -15,7 +15,10 @@
 
 [![Powered by Xray](https://img.shields.io/badge/Powered%20by-Xray--core-blue.svg?style=flat-square)](https://github.com/XTLS/Xray-core) [![Internet Freedom](https://img.shields.io/badge/Internet-Freedom-0099ff.svg?style=flat-square)](https://github.com/ISFZY/Xray-Reality) [![404 Not Found](https://img.shields.io/badge/Censorship-404%20Not%20Found-red.svg?style=flat-square)](https://github.com/ISFZY/Xray-Reality)
 
-[![GitHub release](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/releases/latest) [![Shell](https://img.shields.io/badge/Language-Shell-89E051?style=flat-square&logo=gnu-bash&logoColor=white)](https://github.com/ISFZY/Xray-Reality/search?l=Shell) [![GitHub stars](https://img.shields.io/github/stars/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/stargazers) [![License](https://img.shields.io/github/license/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/releases/latest) [![Downloads](https://img.shields.io/github/downloads/ISFZY/Xray-Reality/total?style=flat-square)](https://github.com/ISFZY/Xray-Reality/releases) [![Last Commit](https://img.shields.io/github/last-commit/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/commits/main) [![GitHub stars](https://img.shields.io/github/stars/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/stargazers) 
+
+[![OS](https://img.shields.io/badge/OS-Debian%20%7C%20Ubuntu-blue?style=flat-square&logo=linux&logoColor=white)](https://github.com/ISFZY/Xray-Reality) [![Shell](https://img.shields.io/badge/Language-Shell-89E051?style=flat-square&logo=gnu-bash&logoColor=white)](https://github.com/ISFZY/Xray-Reality/search?l=Shell) [![License](https://img.shields.io/github/license/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/blob/main/LICENSE)
+
 
 
 本项目是一个高度模块化的 Shell 脚本，用于在 Linux 服务器上快速部署基于 **Xray** 核心的代理服务。支持最新的 **Vision** 和 **XHTTP** 协议，并集成了由 Reality 驱动的 SNI 伪装技术。
@@ -243,11 +246,6 @@ DMIT分为三个网络类型，Premium (Pro)、Eyeball (Eb)、Tier1 (T1)，现�
 # 🚀 Xray-Reality Installer
 
 **Fully Automated, Modular Xray Deployment Script**
-
-[![Powered by Xray](https://img.shields.io/badge/Powered%20by-Xray--core-blue.svg?style=flat-square)](https://github.com/XTLS/Xray-core) [![Internet Freedom](https://img.shields.io/badge/Internet-Freedom-0099ff.svg?style=flat-square)](https://github.com/ISFZY/Xray-Reality) [![404 Not Found](https://img.shields.io/badge/Censorship-404%20Not%20Found-red.svg?style=flat-square)](https://github.com/ISFZY/Xray-Reality)
-
-[![GitHub release](https://img.shields.io/github/v/release/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/releases/latest) [![Shell](https://img.shields.io/badge/Language-Shell-89E051?style=flat-square&logo=gnu-bash&logoColor=white)](https://github.com/ISFZY/Xray-Reality/search?l=Shell) [![GitHub stars](https://img.shields.io/github/stars/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/stargazers) [![License](https://img.shields.io/github/license/ISFZY/Xray-Reality?style=flat-square)](https://github.com/ISFZY/Xray-Reality/blob/main/LICENSE)
-
 
 This project is a highly modular Shell script designed for the rapid deployment of proxy services based on the **Xray** core on Linux servers. It supports the latest **Vision** and **XHTTP** protocols and integrates SNI masking technology powered by Reality.
 
