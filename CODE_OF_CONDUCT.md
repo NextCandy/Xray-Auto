@@ -1,6 +1,9 @@
-# 贡献者公约行为准则 (Contributor Covenant Code of Conduct)
+[🇨🇳 阅读中文版本](#zh-version) | [🇺🇸 Read English Version](#en-version)
 
-*(English version follows below)*
+---
+
+<a id="zh-version"></a>
+# 贡献者公约行为准则
 
 ## 我们的誓言
 
@@ -51,8 +54,11 @@
 [homepage-zh]: https://www.contributor-covenant.org
 [v2.1-zh]: https://www.contributor-covenant.org/zh-cn/version/2/1/code_of_conduct.html
 
+<br>
+
 ---
 
+<a id="en-version"></a>
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
